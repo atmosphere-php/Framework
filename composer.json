@@ -1,0 +1,21 @@
+{
+    "name": "atmospherephp/framework",
+    "description": "Atmosphere framework for PHP.",
+    "type": "project",
+    "require-dev": {
+        "phpunit/phpunit": "^10.0"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Atmospherephp\\Framework\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Romano Schoonheim",
+            "email": "support@atmosphere.sh"
+        }
+    ],
+    "require": {}
+}
