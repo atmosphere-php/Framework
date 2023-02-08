@@ -7,6 +7,7 @@ namespace Atmospherephp\Framework\Foundation;
 use Atmospherephp\Framework\Http\HttpKernel;
 use Atmospherephp\Framework\Console\ConsoleKernel;
 use Atmospherephp\Framework\Foundation\Container\Container;
+use Atmospherephp\Framework\Foundation\Enumerations\Processes;
 
 class Application
 {
@@ -47,6 +48,6 @@ class Application
      */
     public function run(): void
     {
-        //todo: implement this method.
+        var_dump($this->container);
     }
 }
