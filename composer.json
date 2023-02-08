@@ -18,7 +18,9 @@
             "email": "support@atmosphere.sh"
         }
     ],
-    "require": {},
+    "require": {
+        "symfony/yaml": "^6.2"
+    },
     "autoload": {
         "psr-4": {
             "Atmospherephp\\Framework\\": "src/"

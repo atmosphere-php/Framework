@@ -5,9 +5,13 @@ declare(strict_types=1);
 namespace Atmospherephp\Framework\Foundation;
 
 use Atmospherephp\Framework\Http\HttpKernel;
+use Atmospherephp\Framework\Http\IO\HttpInput;
 use Atmospherephp\Framework\Console\ConsoleKernel;
-use Atmospherephp\Framework\Foundation\Container\Container;
+use Atmospherephp\Framework\Console\IO\ConsoleInput;
 use Atmospherephp\Framework\Foundation\Enumerations\Processes;
+use Atmospherephp\Framework\Foundation\Service\ServiceDefinitionResolver;
+use Atmospherephp\Framework\Foundation\Container\Container;
+use Atmospherephp\Framework\Foundation\Enumerations\Feature;
 
 class Application
 {
@@ -25,15 +29,54 @@ class Application
     {
         $this->container = new Container();
 
+        // Bind framework features to
+        // the container that are
+        // not kernel specific.
+        $this->bindFrameworkFeaturesToContainer();
+
         // The kernel registers
         // processes into the
         // container.
         $this->kernel = $kernel;
         $kernel->bootstrap($this);
 
+        // Resolve all the services
+        // that can be used by the
+        // current kernel.
+        $services = $this->container->get(
+            Feature::RESOLVE_SERVICES_DEFINITION->value
+        )->resolve();
+
+        $acceptedKind = ($kernel instanceof HttpKernel)
+            ? 'http'
+            : 'console';
+        $services = array_filter($services, static fn (array $service): bool => $service['kind'] === $acceptedKind);
+
         // Determine, which services
         // are needed to fulfill
         // the request.
+        /** @var ConsoleInput|HttpInput $input */
+        $input = $this->container->get(Processes::INPUT->value);
+
+        // Determine the intended
+        // action based on the
+        // input.
+        $intend = $input->getIntendedAction();
+
+        // We should now have
+        // knowledge where to
+        // dispatch the request
+        // to.
+        //
+        // We should create some kind
+        // of internal routing system
+
+
+
+
+        var_dump($intend, $services);
+        die();
+
         $this->container->defineServices(
             $kernel->determineUsedServices()
         );
@@ -50,4 +93,14 @@ class Application
     {
         var_dump($this->container);
     }
+
+    private function bindFrameworkFeaturesToContainer(): void
+    {
+        $this->container->set(
+            Feature::RESOLVE_SERVICES_DEFINITION->value,
+            new ServiceDefinitionResolver()
+        );
+
+    }
+
 }
