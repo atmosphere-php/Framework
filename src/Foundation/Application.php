@@ -25,8 +25,9 @@ class Application
      *
      * @param  HttpKernel|ConsoleKernel  $kernel
      */
-    public function __construct(HttpKernel|ConsoleKernel $kernel)
-    {
+    public function __construct(
+        HttpKernel|ConsoleKernel $kernel
+    ) {
         $this->container = new Container();
 
         // Bind framework features to
