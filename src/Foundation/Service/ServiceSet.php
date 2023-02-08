@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 namespace Atmospherephp\Framework\Foundation\Service;
+
 use Iterator;
 use InvalidArgumentException;
 

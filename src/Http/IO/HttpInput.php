@@ -7,5 +7,6 @@ namespace Atmospherephp\Framework\Http\IO;
 class HttpInput
 {
     public function getIntendedAction()
-    {}
+    {
+    }
 }

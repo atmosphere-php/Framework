@@ -2,9 +2,7 @@
 
 declare(strict_types=1);
 
-
 namespace Atmospherephp\Framework\Console;
-
 
 use Atmospherephp\Framework\Foundation\Application;
 use Atmospherephp\Framework\Console\IO\ConsoleInput;

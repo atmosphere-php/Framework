@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 namespace Atmospherephp\Framework\Http;
+
 use Atmospherephp\Framework\Http\IO\HttpInput;
 use Atmospherephp\Framework\Http\IO\HttpOutput;
 use Atmospherephp\Framework\Foundation\Application;

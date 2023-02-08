@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 namespace Atmospherephp\Framework\Foundation\Container;
+
 use Atmospherephp\Framework\Foundation\Service\ServiceSet;
 
 class Container

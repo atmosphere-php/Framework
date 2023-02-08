@@ -94,8 +94,6 @@ class Application
         //
 
         // $serviceToLoad
-
-
     }
 
     /**
@@ -117,5 +115,4 @@ class Application
             new ServiceDefinitionResolver()
         );
     }
-
 }

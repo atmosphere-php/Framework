@@ -2,9 +2,7 @@
 
 declare(strict_types=1);
 
-
 namespace Atmospherephp\Framework\Foundation\Service;
-
 
 class Service
 {
@@ -16,5 +14,4 @@ class Service
         $this->name = $name;
         $this->value = $value;
     }
-
 }

@@ -23,5 +23,4 @@ class ApplicationTest extends TestCase
         $this->assertInstanceOf(Application::class, $application);
         $this->assertInstanceOf(Container::class, $application->container);
     }
-
 }
