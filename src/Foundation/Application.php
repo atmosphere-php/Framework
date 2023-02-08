@@ -6,8 +6,8 @@ namespace Atmospherephp\Framework\Foundation;
 
 use Atmospherephp\Framework\Http\HttpKernel;
 use Atmospherephp\Framework\Console\ConsoleKernel;
-use Atmospherephp\Framework\Foundation\Service\ServiceSet;
 use Atmospherephp\Framework\Foundation\Container\Container;
+use Atmospherephp\Framework\Foundation\Enumerations\Processes;
 
 class Application
 {
@@ -47,5 +47,10 @@ class Application
      * @return void
      */
     public function run(): void
-    {}
+    {
+        $input = $this->container->get(Processes::INPUT->value);
+        $output = $this->container->get(Processes::OUTPUT->value);
+
+        var_dump($input, $output);
+    }
 }
