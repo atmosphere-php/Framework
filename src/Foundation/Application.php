@@ -40,6 +40,16 @@ class Application
     }
 
     /**
+     * Handles the request by interpreting
+     * the request and dispatching its intended
+     * procedure.
+     *
+     * @return void
+     */
+    public function run(): void
+    {}
+
+    /**
      * Define application services into the container.
      *
      * @param ServiceSet $services
