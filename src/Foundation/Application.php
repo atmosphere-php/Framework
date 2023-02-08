@@ -15,10 +15,28 @@ class Application
 
     public readonly Container $container;
 
+    /**
+     * The constructor is in charge of bootstrapping
+     * the (whole) application.
+     *
+     * @param  HttpKernel|ConsoleKernel  $kernel
+     */
     public function __construct(HttpKernel|ConsoleKernel $kernel)
     {
-        $this->kernel = $kernel;
         $this->container = new Container();
+
+        // The kernel registers
+        // processes into the
+        // container.
+        $this->kernel = $kernel;
+        $kernel->bootstrap($this);
+
+        // Determine, which services
+        // are needed to fulfill
+        // the request.
+        $this->defineServices(
+            $kernel->determineUsedServices()
+        );
     }
 
     /**
