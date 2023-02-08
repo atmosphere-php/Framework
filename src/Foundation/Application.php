@@ -48,9 +48,6 @@ class Application
      */
     public function run(): void
     {
-        $input = $this->container->get(Processes::INPUT->value);
-        $output = $this->container->get(Processes::OUTPUT->value);
-
-        var_dump($input, $output);
+        var_dump($this->container);
     }
 }
