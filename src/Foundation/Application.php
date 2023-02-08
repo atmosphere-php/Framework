@@ -70,16 +70,32 @@ class Application
         //
         // We should create some kind
         // of internal routing system
+        $routes = [];
+        foreach ($services as $service) {
+            $directory = __DIR__ . '/../../../Atmosphere/Services/' . $service['directory'];
+            $routing = require $directory . '/Routing.php';
+            $routes[$service['name']] = $routing;
+        }
+
+        // Search for the intended
+        // in the routes.
+        $serviceToLoad = null;
+        foreach ($routes as $service => $serviceRoutes) {
+            foreach ($serviceRoutes as $route => $action) {
+                if ($route === $intend) {
+                    $serviceToLoad = $service;
+                    break;
+                }
+            }
+        }
+
+        // Load the dependencies
+        // into the container.
+        //
+
+        // $serviceToLoad
 
 
-
-
-        var_dump($intend, $services);
-        die();
-
-        $this->container->defineServices(
-            $kernel->determineUsedServices()
-        );
     }
 
     /**
@@ -100,7 +116,6 @@ class Application
             Feature::RESOLVE_SERVICES_DEFINITION->value,
             new ServiceDefinitionResolver()
         );
-
     }
 
 }
