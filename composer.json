@@ -1,7 +1,7 @@
 {
     "name": "atmospherephp/framework",
     "description": "Atmosphere framework for PHP.",
-    "type": "project",
+    "type": "library",
     "license": "MIT",
     "authors": [
         {
