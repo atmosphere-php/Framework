@@ -1,6 +1,15 @@
 {
     "name": "atmospherephp/framework",
     "description": "Atmosphere framework for PHP.",
+    "keywords": [
+        "framework",
+        "php",
+        "php-framework",
+        "laravel-alternative",
+        "atmosphere",
+        "atmospherephp",
+        "atmosphere-framework"
+    ],
     "type": "library",
     "license": "MIT",
     "authors": [
