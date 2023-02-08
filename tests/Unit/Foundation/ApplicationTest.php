@@ -24,23 +24,4 @@ class ApplicationTest extends TestCase
         $this->assertInstanceOf(Container::class, $application->container);
     }
 
-    /** @test */
-    public function define_services_defines_the_given_services_in_the_container(): void
-    {
-        $application = new Application(
-            new ConsoleKernel()
-        );
-        $returnValue = $application->defineServices(
-            ServiceSet::make([
-                new Service(
-                    'service1',
-                    'value1'
-                ),
-            ])
-        );
-
-        $this->assertInstanceOf(Application::class, $returnValue);
-        $this->assertEquals('value1', $application->container->get('service1'));
-    }
-
 }

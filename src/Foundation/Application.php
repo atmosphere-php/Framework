@@ -34,7 +34,7 @@ class Application
         // Determine, which services
         // are needed to fulfill
         // the request.
-        $this->defineServices(
+        $this->container->defineServices(
             $kernel->determineUsedServices()
         );
     }
@@ -48,21 +48,4 @@ class Application
      */
     public function run(): void
     {}
-
-    /**
-     * Define application services into the container.
-     *
-     * @param ServiceSet $services
-     * @return $this
-     */
-    public function defineServices(ServiceSet $services): self
-    {
-        foreach ($services as $service) {
-            $this->container->set($service->name, $service->value);
-        }
-
-        return $this;
-    }
-
-
 }
