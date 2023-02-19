@@ -2,9 +2,11 @@
 
 declare(strict_types=1);
 
+
 namespace Atmospherephp\Framework\Console\IO;
 
-class ConsoleInput
+
+class IOManager
 {
     public readonly array $rawInput;
 

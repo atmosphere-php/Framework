@@ -57,7 +57,7 @@ class Application
         // are needed to fulfill
         // the request.
         /** @var ConsoleInput|HttpInput $input */
-        $input = $this->container->get(Processes::INPUT->value);
+        $input = $this->container->get(Processes::IO->value);
 
         // Determine the intended
         // action based on the
@@ -106,7 +106,6 @@ class Application
      */
     public function run(): void
     {
-        var_dump($this->container);
     }
 
     private function bindFrameworkFeaturesToContainer(): void
